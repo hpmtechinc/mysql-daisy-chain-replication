@@ -1,0 +1,10 @@
+[mysqld]
+server-id                     = 57
+replicate-ignore-db           = mysql
+log-slave-updates             = 1
+log-bin                       = mysql57-log-bin
+binlog_format                 = ROW
+sync_binlog                   = 1
+relay_log                     = mysql57-relay-log
+max_relay_log_size            = 1GB
+read_only                     = 1

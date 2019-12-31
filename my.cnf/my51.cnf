@@ -1,0 +1,5 @@
+[mysqld]
+server-id                     = 51
+log-bin                       = mysql51-log-bin
+binlog_format                 = ROW
+sync_binlog                   = 1

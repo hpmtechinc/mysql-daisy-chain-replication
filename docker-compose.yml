@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  mysql51:
+    image: vsamov/mysql-5.1.73
+    container_name: mysql51
+    tty: true
+    ports:
+      - "33061:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    volumes:
+      - ./my.cnf/my51.cnf:/etc/my.cnf
+      - ./data/mysql51:/var/lib/mysql
+
+  mysql57:
+    image: mysql:5.7.22
+    container_name: mysql57
+    tty: true
+    ports:
+      - "33067:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    depends_on:
+      - mysql51
+    volumes:
+      - ./my.cnf/my57.cnf:/etc/my.cnf
+      - ./data/mysql57:/var/lib/mysql
+
+  mysql80:
+    image: mysql:8.0.16
+    container_name: mysql80
+    tty: true
+    ports:
+      - "33068:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+    depends_on:
+      - mysql57
+    volumes:
+      - ./my.cnf/my80.cnf:/etc/my.cnf
+      - ./data/mysql80:/var/lib/mysql-files
+
+  executor:
+    build: executor
+    container_name: executor
+    tty: true
+    depends_on:
+      - mysql51
+      - mysql57
+      - mysql80
+    working_dir: /scenario
+    volumes:
+       - ./scenario:/scenario
