@@ -1,6 +1,8 @@
 # MySQL Daisy Chain Replication
 In this repo using docker containers, we create a daisy chain replication from mysql 5.1 to 5.7 to 8.0
 
+Check the post in the blog: https://hpmtechinc.com/daisy-chain-mysql-replication
+
 ## Pre-Requisites
 If you have a unix based OS and docker installed, you are good to go. With some effort the main script `run.sh` can be converted to `run.bat`. Contributions are appreciated.
 
