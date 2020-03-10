@@ -7,7 +7,12 @@ Check the post in the blog: https://hpmtechinc.com/daisy-chain-mysql-replication
 If you have a unix based OS and docker installed, you are good to go. With some effort the main script `run.sh` can be converted to `run.bat`. Contributions are appreciated.
 
 ## Quick Start
-Start `./run.sh`. Docker containers will be created and replication will be stablished. Ending or terminating the script would stop and delete the containers and also the volumes. The reason behind the deletion is that we prefer to test the replication on a clean slate.
+```
+git clone https://github.com/hpmtechinc/mysql-daisy-chain-replication.git \
+  && cd mysql-daisy-chain-replication \
+  && ./run.sh
+```
+Docker containers will be created and replication will be stablished. Ending or terminating the script would stop and delete the containers and also the volumes. The reason behind the deletion is that we prefer to test the replication on a clean slate.
 
 ## Sample Run
 ```
